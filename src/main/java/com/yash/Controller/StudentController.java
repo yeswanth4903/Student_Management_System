@@ -16,8 +16,7 @@ public class StudentController {
 
     @GetMapping(value={"/","/home"})
     public String home(Model model) {
-        Sort sort = Sort.by(Sort.Direction.ASC, "id");
-        model.addAttribute("students", StudentService.getAllStudents(sort));
+        model.addAttribute("students", StudentService.getAllStudents());
         return "home";
     }
 
@@ -51,7 +50,6 @@ public class StudentController {
         StudentService.deleteStudent(id);
         return "redirect:/";
     }
-
 
 }
 

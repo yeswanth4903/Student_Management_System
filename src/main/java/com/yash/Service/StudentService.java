@@ -14,8 +14,8 @@ public class StudentService {
     @Autowired
     private StudentRepo studentRepo;
 
-    public List<Student> getAllStudents(Sort id) {
-        return studentRepo.findAll();
+    public List<Student> getAllStudents() {
+        return studentRepo.findAll(Sort.by("id").ascending());
     }
 
     public void save(Student student) {
@@ -28,6 +28,5 @@ public class StudentService {
     public void deleteStudent(Long id) {
         studentRepo.deleteById(id);
     }
-
 }
 
