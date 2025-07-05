@@ -21,7 +21,12 @@
     <div class="add-btn">
         <a href="/add" class="btn btn-primary">Add New Student</a>
     </div>
-
+    <div class="search-form">
+        <form th:action="@{/find}" method="get">
+            <input type="text" name="name" placeholder="Enter student name" required>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
     <table>
         <thead>
             <tr>
@@ -40,7 +45,7 @@
                 <td th:text="${student.department}"></td>
                 <td>
                     <a th:href="@{/edit/{id}(id=${student.id})}" class="btn btn-warning">Edit</a>
-                    <a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger" 
+                    <a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger"
                        onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
                 </td>
             </tr>

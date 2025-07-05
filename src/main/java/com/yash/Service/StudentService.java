@@ -28,5 +28,9 @@ public class StudentService {
     public void deleteStudent(Long id) {
         studentRepo.deleteById(id);
     }
+
+    public List<Student> getStudentByName(String name) {
+        return studentRepo.findByName(name);
+    }
 }
 

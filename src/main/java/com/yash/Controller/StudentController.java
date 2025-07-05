@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
     @Autowired
@@ -30,6 +32,12 @@ public class StudentController {
     public String save(@ModelAttribute("student") Student student) {
         StudentService.save(student);
         return "redirect:/";
+    }
+    @GetMapping("/find")
+    public String findByName(@RequestParam("name") String name, Model model) {
+        List<Student> student = StudentService.getStudentByName(name);
+        model.addAttribute("student", student);
+        return "findStudent";
     }
 
     @GetMapping("/edit/{id}")

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Student</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 8px 16px; text-decoration: none; color: white; border-radius: 4px; margin: 2px; }
+        .btn-primary { background-color: #007bff; }
+        .btn-back { background-color: #6c757d; }
+    </style>
+</head>
+<body>
+
+<h1>Search Result - Students Found</h1>
+
+<a href="/" class="btn btn-back">Back to Home</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${student}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.department}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
